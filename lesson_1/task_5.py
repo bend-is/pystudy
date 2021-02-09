@@ -10,10 +10,12 @@ outgoings = int(input("Enter company outgoings: "))
 
 if earnings > outgoings:
     profit = earnings - outgoings
-    print(f"\nCompany work for profit. Profit is {profit}")
+    print(f"\nCompany works for profit. Profit is {profit}")
     profitability = (profit / earnings) * 100
     print(f"Profitability of company is {profitability:.2f}%\n")
     employee_count = int(input("Enter company employee count: "))
     print(f"\nProfit per employee is {profit / employee_count:.2f}")
+if earnings == outgoings:
+    print("\nCompany works to zero")
 else:
-    print("\nCompany work for loss")
+    print("\nCompany works for loss")
