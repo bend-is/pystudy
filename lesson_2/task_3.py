@@ -18,10 +18,18 @@ seasons_in_list = [
     'зима',
 ]
 seasons_in_dict = {
-    "зима": [1, 2, 12],
-    "весна": [3, 4, 5],
-    "лето": [6, 7, 8],
-    "осень": [9, 10, 11],
+    1: 'зима',
+    2: 'зима',
+    3: 'весна',
+    4: 'весна',
+    5: 'весна',
+    6: 'лето',
+    7: 'лето',
+    8: 'лето',
+    9: 'осень',
+    10: 'осень',
+    11: 'осень',
+    12: 'зима',
 }
 
 input_month = ''
@@ -32,8 +40,4 @@ while not input_month.isdigit() or int(input_month) < 1 or int(input_month) > 12
 input_month = int(input_month)
 
 print(f"Season from list: {seasons_in_list[input_month - 1]}")
-
-for season in seasons_in_dict:
-    if input_month in seasons_in_dict[season]:
-        print(f"Season from dict: {season}")
-        break
+print(f"Season from dict: {seasons_in_dict[input_month]}")
