@@ -16,7 +16,7 @@ def func_a(initial: int, limit: int = None):
     if limit is None:
         limit = initial + 10
 
-    for elem in cycle(range(initial, limit + 1)):
+    for elem in count(initial):
         yield elem
         if elem == limit:
             return

@@ -6,4 +6,4 @@
 """
 from functools import reduce
 
-print(reduce(lambda x, y: x + y, (v for v in range(100, 1001) if v % 2 == 0)))
+print(reduce(lambda x, y: x * y, (v for v in range(100, 1001, 2))))
