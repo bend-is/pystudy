@@ -11,8 +11,7 @@ class Date:
 
     def __init__(self, date: str):
         parsed = Date.parse_date(date)
-        if not parsed or not Date.is_valid(parsed):
-            raise ValueError('Wrong date value was specified')
+        Date.validate(parsed)
 
         self.date = parsed
 
@@ -29,18 +28,22 @@ class Date:
         }
 
     @staticmethod
-    def is_valid(date: dict) -> bool:
-        day, month, year = date.get("day2"), date.get("month"), date.get("year")
+    def validate(date: dict):
+        day, month, year = date.get("day"), date.get("month"), date.get("year")
 
-        if not day or day < 1 or not month or month < 1 or month > 12 or not year or year < 1:
-            return False
+        if not day or day < 1:
+            raise ValueError('Day value must be specified and be positive')
+        elif not month or month < 1 or month > 12:
+            raise ValueError('Month value must be specified and be more than 0 and less then 13')
+        elif not year or year < 1:
+            raise ValueError('Year value must be specified and be positive')
 
         max_day_count_in_month_map = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
         if day > max_day_count_in_month_map[month - 1]:
-            return False
-
-        return True
+            raise ValueError(
+                f'Day value for {month} month must be less than {max_day_count_in_month_map[month - 1]} or equal'
+            )
 
 
 if __name__ == '__main__':
