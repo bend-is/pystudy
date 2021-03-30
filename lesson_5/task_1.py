@@ -6,6 +6,6 @@
 with open('task_1.txt', 'w') as f:
     while True:
         text = input()
-        if text == '':
+        if not text:
             break
         f.write(f"{text}\n")
